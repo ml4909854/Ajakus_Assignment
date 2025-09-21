@@ -16,11 +16,6 @@ app.use(cors({
   credentials: true
 }));
 
-// Health check route
-app.get("/health", (req, res) => {
-  res.status(200).send({ status: "ok", message: "Server is running!" });
-});
-
 
 
 
