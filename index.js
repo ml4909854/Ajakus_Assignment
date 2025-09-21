@@ -16,6 +16,16 @@ app.use(cors({
   credentials: true
 }));
 
+// Health check route
+app.get("/health", (req, res) => {
+  res.status(200).send({ status: "ok", message: "Server is running!" });
+});
+
+// 404 handler (for all other routes)
+app.use((req, res) => {
+  res.status(404).send({ status: "error", message: "Page not found!" });
+});
+
 
 // routes
 app.use("/users", userRouter);
